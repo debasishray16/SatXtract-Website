@@ -20,8 +20,6 @@ RUN apt-get update && apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext
 # Copy all project files
 COPY . /app
 
-# Copy the Earth Engine service account key
-COPY key.json /app/key.json
 
 # Create a virtual environment
 RUN python3 -m venv /app/osgeo_env
@@ -33,7 +31,7 @@ RUN /app/osgeo_env/bin/pip install --upgrade pip setuptools wheel && \
 # Set environment variables
 ENV osgeo_env=/app/osgeo_env
 ENV PATH="$osgeo_env/bin:$PATH"
-ENV GOOGLE_APPLICATION_CREDENTIALS="/app/key.json"
+
 
 
 EXPOSE 5000

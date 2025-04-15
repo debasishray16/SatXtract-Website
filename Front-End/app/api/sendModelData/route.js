@@ -6,7 +6,8 @@ export async function POST(request) {
 
   try {
     // Forward the model data to the backend server
-    const response = await axios.post('http://localhost:5000/api/selectModel', {
+    const backendURL = process.env.BACKEND_URL || 'http://localhost:5000';
+    const response = await axios.post(`${backendURL}/api/selectModel`, {
       model,
     });
 

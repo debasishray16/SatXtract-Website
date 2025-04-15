@@ -24,8 +24,8 @@ split-folders==0.5.1
 tensorflow
 tqdm==4.65.0
 scipy==1.9.3
-
-
+python-dotenv
+google-auth
 earthengine-api
 geemap
 huggingface_hub

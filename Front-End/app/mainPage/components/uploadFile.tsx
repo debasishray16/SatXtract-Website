@@ -20,8 +20,9 @@ const UploadFile = () => {
     formData.append("file", file);
 
     try {
+      const backendURL = process.env.BACKEND_URL || 'http://localhost:5000';
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        `${backendURL}/upload`,
         formData,
         {
           headers: {

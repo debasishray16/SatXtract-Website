@@ -1,0 +1,18 @@
+services:
+  back-end:
+    build: Back-End
+    ports:
+      - "5000:5000"
+    image: debasishray/satxtract-backend:v2.0
+  
+  # depends_on must be placed at last beacuse it depends upon backend.
+  front-end:
+    build: Front-End
+    ports:
+      - "3000:3000"
+    image: debasishray/satxtract-frontend:v2.0
+    
+    depends_on:
+      - back-end
+    environment:
+      - BACKEND_URL=http://back-end:5000

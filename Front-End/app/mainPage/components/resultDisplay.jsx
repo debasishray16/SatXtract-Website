@@ -32,7 +32,8 @@ const ResultDisplay = ({
       console.log("Response from internal API:", data);
 
       // Update the state with the image paths
-      const baseUrl = "http://127.0.0.1:5000";
+      const basebackendURL = process.env.BACKEND_URL || 'http://127.0.0.1:5000';
+      const baseUrl = `${basebackendURL}`;
       const timestamp = new Date().getTime()
       // const initialImageUrl = data.initial_image
       //   ? `${baseUrl}${data.initial_image.replace("..", "")}`

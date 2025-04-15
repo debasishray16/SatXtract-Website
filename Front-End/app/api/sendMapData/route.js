@@ -5,7 +5,9 @@ export async function POST(request) {
   const { lat, lon, zoom } = await request.json();
 
   try {
-    const response = await axios.post('http://localhost:5000/api/mapdata', {
+
+    const backendURL = process.env.BACKEND_URL || 'http://localhost:5000';
+    const response = await axios.post(`${backendURL}/api/mapdata`, {
       lat,
       lon,
       zoom,

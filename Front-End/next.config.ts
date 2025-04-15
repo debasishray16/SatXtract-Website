@@ -1,12 +1,14 @@
 import type { NextConfig } from "next";
 
+const backendHost = process.env.BACKEND_HOST || "localhost";
+
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "127.0.0.1",
+        hostname: backendHost,
         port: "5000",
         pathname: "/**",
       },

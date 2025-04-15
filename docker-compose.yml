@@ -15,4 +15,5 @@ services:
     depends_on:
       - back-end
     environment:
+      - BACKEND_HOST=back-end
       - BACKEND_URL=http://back-end:5000
